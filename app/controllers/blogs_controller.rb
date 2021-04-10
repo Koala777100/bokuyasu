@@ -21,6 +21,7 @@ class BlogsController < ApplicationController
   def destroy
   end
 
+
   private
 
   def blog_params
