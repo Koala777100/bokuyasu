@@ -1,0 +1,12 @@
+<h4>Profile</h4>
+<table class="table">
+  <% @members.each do |member| %>
+    <tr>
+      <td><%= attachment_image_tag member, :profile_image, :fill, 60, 60, fallback: "/no_image.jpg" %></td>
+      <td><%= member.name %></td>
+      <td><%= member.introduction %></td>
+      <td><%= link_to "edit", edit_member_path(member), class: "btn btn-success btn-sm" %></td>
+      <td><%= link_to "destroy", member_path(member), method: :delete, class: "btn btn-danger btn-sm", "data-confirm" => "本当に削除しますか？" %></td></br>
+    </tr>
+  <% end %>
+</table>

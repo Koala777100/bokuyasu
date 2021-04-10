@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bokuyasu</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css">
+  </head>
+
+  <body>
+    <header>
+      <nav class="navbar bg-dark">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-5 h5 text-left px-1 py-2">
+              <%= link_to "ぼくらの休日", root_path, class: "text-white" %>
+            </div>
+            <div class="col-md-7 text-white">
+              <p>About</p>
+              <p><%= link_to "Profile", members_path, class: "text-white" %></p>
+              <p><%= link_to "News", blogs_path, class: "text-white" %></p>
+              <p><%= link_to "YouTube", "https://www.youtube.com/channel/UCMbqNQ0yjSz3YJ1QIJd9mhQ", class: "text-white" %></p>
+              <p><%= link_to "Instagram", "https://www.instagram.com/bokuranokyuzitsu/", class: "text-white" %></p>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <%= yield %>
+    </main>
+    <footer>
+      <container class="mt-5">
+        <div class="row">
+          <div class="mx-auto">
+            <p>CopyRight Bokuranokyujitsu All Rights Reserved</p>
+          </div>
+        </div>
+      </container>
+    </footer>
+  </body>
+</html>

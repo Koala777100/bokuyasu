@@ -1,0 +1,12 @@
+<h2>Edit Profile</h2>
+<%= form_with model:@member, url:"/members/#{@member.id}", local:true do |f| %>
+  <h4>Name</h4>
+  <%= f.text_field :name, class: "form-control" %>
+  <h4>Image</h4>
+  <%= f.attachment_field :profile_image %>
+  <h4>Introduction</h4>
+  <%= f.text_area :introduction, class: "form-control" %></br>
+  <%= f.submit 'Update Profile', class: "btn btn-success btn-sm" %></br>
+
+  <%= link_to "Back", members_path %>
+<% end %>
