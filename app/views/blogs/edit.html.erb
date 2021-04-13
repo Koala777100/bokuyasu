@@ -1,0 +1,12 @@
+<h2>Edit News</h2>
+<%= form_with model:@blog, url:"/blogs/#{@blog.id}", local:true do |f| %>
+  <h4>Title</h4>
+  <%= f.text_field :title, class: "form-control" %>
+  <h4>Image</h4>
+  <%= f.attachment_field :blog_image %>
+  <h4>Body</h4>
+  <%= f.text_area :body, class: "form-control" %></br>
+  <%= f.submit 'Update News', class: "btn btn-success btn-sm" %></br>
+
+  <%= link_to "Back", blogs_path %>
+<% end %>

@@ -1,1 +1,15 @@
-<h1>NEWS</h1>
+<h4>News</h4>
+<table class="table">
+  <% @blogs.each do |blog| %>
+    <tr>
+      <td><%= attachment_image_tag blog, :blog_image, :fill, 60, 60, fallback: "/no_image.jpg" %></td>
+      <td><%= link_to blog.title, blog_path(blog) %></td>
+      <td><%= blog.body %></td>
+      <td><%= link_to "edit", edit_blog_path(blog), class: "btn btn-success btn-sm" %></td>
+      <td><%= link_to "destroy", blog_path(blog), method: :delete, class: "btn btn-danger btn-sm", "data-confirm" => "本当に削除しますか？" %></td></br>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to "Create News", new_blog_path, class: "btn btn-success btn-sm" %>
+

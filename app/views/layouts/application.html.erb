@@ -18,11 +18,19 @@
               <%= link_to "ぼくらの休日", root_path, class: "text-white" %>
             </div>
             <div class="col-md-7 text-white">
-              <p>About</p>
+              <p><%= link_to "About", homes_about_path, class: "text-white" %></p>
               <p><%= link_to "Profile", members_path, class: "text-white" %></p>
               <p><%= link_to "News", blogs_path, class: "text-white" %></p>
-              <p><%= link_to "YouTube", "https://www.youtube.com/channel/UCMbqNQ0yjSz3YJ1QIJd9mhQ", class: "text-white" %></p>
-              <p><%= link_to "Instagram", "https://www.instagram.com/bokuranokyuzitsu/", class: "text-white" %></p>
+              <p>
+                <%= link_to "https://www.youtube.com/channel/UCMbqNQ0yjSz3YJ1QIJd9mhQ", class: "text-white" do %>
+                  <i class="fab fa-youtube"></i>
+                <% end %>
+              </p>
+              <p>
+                <%= link_to"https://www.instagram.com/bokuranokyuzitsu/", class: "text-white" do %>
+                  <i class="fab fa-instagram"></i>
+                <% end %>
+              </p>
             </div>
           </div>
         </div>

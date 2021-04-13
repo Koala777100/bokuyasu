@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row">
+    <div class="col-7">
+      <h4><%= @blog.title %></h4>
+      <%= attachment_image_tag @blog, :blog_image, :fill, 500, 500 %>
+      <%= @blog.body %>
+    </div>
+    <div class="col-5">
+      <h4>News</h4>
+      <table class="table">
+      <% @blogs.each do |blog| %>
+        <tr>
+          <td><%= attachment_image_tag blog, :blog_image, :fill, 60, 60, fallback: "/no_image.jpg" %></td>
+          <td><%= link_to blog.title, blog_path(blog) %></td>
+          <td><%= blog.body %></td>
+        </tr>
+      <% end %>
+      </table>
+    </div>
+  </div>
+</div>
