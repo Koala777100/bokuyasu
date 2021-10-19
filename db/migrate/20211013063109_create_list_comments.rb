@@ -4,6 +4,7 @@ class CreateListComments < ActiveRecord::Migration[5.2]
       t.integer :list_id
       t.integer :admin_id
       t.text :body
+      t.string :name
 
       t.timestamps
     end

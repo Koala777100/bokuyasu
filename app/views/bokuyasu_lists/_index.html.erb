@@ -1,0 +1,9 @@
+<% bokuyasu_lists.each do |list| %>
+  <%= list.title %>
+  <%= list.body %>
+  <%= attachment_image_tag list, :image, :fill, 500, 500 %>
+  <% if admin_signed_in? %>
+    <%= link_to "edit", edit_bokuyasu_list_path(list), class: "btn btn-sm" %>
+    <%= link_to "destroy", bokuyasu_list_path(list), method: :delete, "data-confirm" => "本当に削除してOK？", class: "btn btn-sm" %>
+  <% end %>
+<% end %>

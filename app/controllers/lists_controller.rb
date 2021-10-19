@@ -4,6 +4,8 @@ class ListsController < ApplicationController
   def index
     @lists = List.all
     @list = List.new
+    @bokuyasu_list = BokuyasuList.new
+    @bokuyasu_lists = BokuyasuList.all
   end
 
   def confirm

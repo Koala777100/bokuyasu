@@ -1,8 +1,18 @@
 <h4>BUCKET LIST 投稿フォーム</h4>
-<%= render "layouts/error", obj: list %>
-<%= form_with model: list, url: lists_confirm_path, method: :post, local:true do |f| %>
-  あなたのやりたいことはなんですか？(必須)<%= f.text_field :title, class: "form-control" %>
-  詳しく教えてください！(任意)<%= f.text_field :body, class: "form-control" %>
-  ニックネーム(任意)<%= f.text_field :name, class: "form-control" %>
-  <%= f.submit class: "btn btn-outline-secondary" %>
+<% if admin_signed_in? %>
+  <%= render "layouts/error", obj: bokuyasu_list %>
+  <%= form_with model: bokuyasu_list, url: bokuyasu_lists_confirm_path, method: :post, local:true do |f| %>
+    タイトル(必須)<%= f.text_field :title, class: "form-control" %>
+    詳細（任意）<%= f.text_field :body, class: "form-control" %>
+    イメージ画像（任意）<%= f.attachment_field :image, class: "form-control" %>
+    <%= f.submit class: "btn btn-outline-secondary" %>
+  <% end %>
+<% else %>
+  <%= render "layouts/error", obj: list %>
+  <%= form_with model: list, url: lists_confirm_path, method: :post, local:true do |f| %>
+    あなたのやりたいことはなんですか？(必須)<%= f.text_field :title, class: "form-control" %>
+    詳しく教えてください！(任意)<%= f.text_field :body, class: "form-control" %>
+    ニックネーム(任意)<%= f.text_field :name, class: "form-control" %>
+    <%= f.submit class: "btn btn-outline-secondary" %>
+  <% end %>
 <% end %>

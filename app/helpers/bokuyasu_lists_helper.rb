@@ -1,0 +1,2 @@
+module BokuyasuListsHelper
+end

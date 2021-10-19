@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_13_063109) do
+ActiveRecord::Schema.define(version: 2021_10_19_111903) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -33,10 +33,19 @@ ActiveRecord::Schema.define(version: 2021_10_13_063109) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "bokuyasu_lists", force: :cascade do |t|
+    t.string "title"
+    t.string "body"
+    t.string "image_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "list_comments", force: :cascade do |t|
     t.integer "list_id"
     t.integer "admin_id"
     t.text "body"
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -1,5 +1,7 @@
 <div class="container">
-  <h4>BUCKET LIST</h4>
-  <%= render "lists/index", lists: @lists%>
-  <%= render "form", list: @list %>
+  <h4>ぼくらのBUCKET LIST</h4>
+  <%= render "bokuyasu_lists/index", bokuyasu_lists: @bokuyasu_lists %>
+  <h4>みんなのBUCKET LIST</h4>
+  <%= render "lists/index", lists: @lists %>
+  <%= render "form", list: @list, bokuyasu_list: @bokuyasu_list %>
 </div>

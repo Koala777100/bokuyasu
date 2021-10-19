@@ -1,0 +1,29 @@
+<h4>ぼくやすBUCKET LIST投稿確認画面</h4>
+<%= render "layouts/error", obj: @bokuyasu_list %>
+<p class="text-danger">まだ投稿は完了していません</p>
+<div class="card-list-container py-5">
+  <div class="card w-50 mx-auto mt-4 shadow-lg">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-5">
+          <p class="card-title">
+            <strong><%= @bokuyasu_list.title %></strong>
+          </p>
+        </div>
+        <div class="col-10">
+          <p class="card-body">
+            <%= @bokuyasu_list.body %>
+          </p>
+          <p class="card-name">
+            <%= attachment_image_tag @bokuyasu_list.image, :fill, 500, 500, fallback: "no_image.jpg" %>          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<%= form_with model: @bokuyasu_list, url: bokuyasu_lists_path, method: :post, local:true do |f| %>
+  <%= f.hidden_field :title, value: @bokuyasu_list.title %>
+  <%= f.hidden_field :body, value: @bokuyasu_list.body %>
+  <%= f.hidden_field :image, value: @bokuyasu_list.image %>
+  <%= f.submit "上記の内容で投稿する", "data-confirm" => "本当に投稿を確定してよろしいですか？", class: "btn btn-outline-danger" %>
+<% end %>

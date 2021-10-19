@@ -6,9 +6,10 @@ class ListCommentsController < ApplicationController
     @list = List.find(params[:list_id])
     @comment.list_id = @list.id
     if admin_signed_in?
-      @comment.admin_id = admin.id
+      @comment.admin_id = current_admin.id
     end
     if @comment.save
+      binding.pry
       redirect_to list_path(@list)
     else
       @comments = @list.list_comments
