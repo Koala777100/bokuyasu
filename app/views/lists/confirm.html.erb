@@ -1,0 +1,29 @@
+<h4>BUCKET LIST投稿確認画面</h4>
+<p class="text-danger">まだ投稿は完了していません</p>
+<div class="card-list-container py-5">
+  <div class="card w-50 mx-auto mt-4 shadow-lg">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-5">
+          <p class="card-title">
+            <strong><%= @list.title %></strong>
+          </p>
+        </div>
+        <div class="col-10">
+          <p class="card-body">
+            <%= @list.body %>
+          </p>
+          <p class="card-name">
+            By : <%= @list.name %>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<%= form_with model: @list, url: lists_path, method: :post, local:true do |f| %>
+  <%= f.hidden_field :title, value: @list.title %>
+  <%= f.hidden_field :body, value: @list.body %>
+  <%= f.hidden_field :name, value: @list.name %>
+  <%= f.submit "上記の内容で投稿する", "data-confirm" => "本当に投稿を確定してよろしいですか？", class: "btn btn-outline-danger" %>
+<% end %>

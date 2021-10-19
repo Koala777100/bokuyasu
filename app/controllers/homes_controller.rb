@@ -1,6 +1,7 @@
 class HomesController < ApplicationController
-  def index
+  def top
     @blogs = Blog.all
+    @list = List.new
   end
 
   def about

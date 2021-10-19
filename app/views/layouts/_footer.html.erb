@@ -1,0 +1,12 @@
+<footer>
+  <div class="container mt-5">
+    <div class="row">
+      <div class="mx-auto">
+      	<p>@bokuranokyuzitsu</p>
+  	    <% unless admin_signed_in? %>
+      		<%= link_to "ADMIN LOGIN", new_admin_session_path, class: "text-dark" %>
+        <% end %>
+    	</div>
+    </div>
+  </div>
+</footer>

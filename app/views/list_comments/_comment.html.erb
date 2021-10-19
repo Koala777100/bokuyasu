@@ -1,0 +1,48 @@
+<h5>コメント一覧</h5>
+<div class="card-list-container py-5">
+    <div class="card w-50 mx-auto mt-4 shadow-lg">
+      <div class="card-body">
+        <% comments.each do |comment| %>
+        <div class="row">
+          <div class="col-5">
+            <%%>
+            <p class="card-title">
+              <strong>
+                <%= comment.body %>
+              </strong>
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <% if admin_signed_in? %>
+            <%= link_to "コメントを削除", list_list_comment_path(comment), class: "btn btn-danger", "data-confirm"=>"本当に削除してよろしいですか？" %>
+          <% end %>
+        </div>
+        <% end %>
+      </div>
+    </div>
+</div>
+
+<h5>コメント投稿フォーム</h5>
+<%= render "layouts/error", obj: comment %>
+<div class="card-list-container py-5">
+    <div class="card w-50 mx-auto mt-4 shadow-lg">
+      <div class="card-body">
+        <div class="row">
+          <%= form_with model: comment, url: list_list_comments_path(list), method: :post, local: true do |f| %>
+          <div class="col-10">
+            <p class="card-title">
+              <%= f.label :"コメント" %>
+              <%= f.text_field :body, class: "form-control" %>
+            </p>
+            <%= f.submit "送信", class: "btn btn-outline-secondary" %>
+          </div>
+          <% end %>
+          <div class="row">
+          <% if admin_signed_in? %>
+          <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

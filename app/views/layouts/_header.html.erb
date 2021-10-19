@@ -1,0 +1,26 @@
+<header class="header">
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container">
+      <a class="navbar-brand">
+        <%= link_to root_path do %>
+          <%= image_tag 'logo.jpeg', :size =>'160x100' %>
+        <% end %>
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item"><%= link_to "HOME", root_path, class: "nav-link text-dark" %></li>
+          <li class="nav-item"><%= link_to "BUCKET LIST", lists_path, class: "nav-link text-dark" %></li>
+          <li class="nav-item"><%= link_to "MEMBER", members_path, class: "nav-link text-dark" %></li>
+          <li class="nav-item"><%= link_to "YOUTUBE", "https://www.youtube.com/channel/UCMbqNQ0yjSz3YJ1QIJd9mhQ", target: :_blank, rel: "noopener noreferrer", class: "nav-link text-dark" %></li>
+          <li class="nav-item"><%= link_to "INSTAGRAM", "https://www.instagram.com/bokuranokyuzitsu/", target: :_blank, rel: "noopener noreferrer",class: "nav-link text-dark" %></li>
+          <% if admin_signed_in? %>
+          <li class="nav-item"><%= link_to "LOG OUT", destroy_admin_session_path, method: :delete, class: "nav-link text-dark font-weight-bold" %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>

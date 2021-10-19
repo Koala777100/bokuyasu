@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row">
+    <%= image_tag 'image1.jpg', :size =>'900x600' %>
+  </div>
+  <h4>NEWS</h4>
+  <%= render "blogs/index", blogs: @blogs %>
+
+  <div class="row">
+    <h4>BUCKET LIST</h4>
+    <%= render "lists/form", list: @list %>
+  </div>
+
+  <div class="col-4">
+    <iframe width="280" height="157" src="https://www.youtube.com/embed/Jmx6qzcAs5U" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+</div>

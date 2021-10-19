@@ -1,8 +1,15 @@
 Rails.application.routes.draw do
-  root to: 'homes#index'
-  resources :homes, :only => [:about]
+  get 'list_comments/create'
+  get 'list_comments/destroy'
+  devise_for :admins
+  root to: 'homes#top'
   get "homes/about" => "homes#about"
-  resources :members, :only => [:index, :new, :create, :edit, :update, :destroy]
-  resources :blogs, :only => [:index, :show, :new, :create, :edit, :update, :destroy]
+  resources :blogs
+  resources :homes, only:[:about]
+  resources :members
 
+  resources :lists do
+    resources :list_comments, only: [:create, :destroy]
+  end
+  post "lists/confirm" => "lists#confirm"
 end

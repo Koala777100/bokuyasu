@@ -1,12 +1,31 @@
-<h4>Profile</h4>
-<table class="table">
+<div class="container">
+  <h4>MEMBER</h4>
   <% @members.each do |member| %>
-    <tr>
-      <td><%= attachment_image_tag member, :profile_image, :fill, 60, 60, fallback: "/no_image.jpg" %></td>
-      <td><%= member.name %></td>
-      <td><%= member.introduction %></td>
-      <td><%= link_to "edit", edit_member_path(member), class: "btn btn-success" %></td>
-      <td><%= link_to "destroy", member_path(member), method: :delete, class: "btn btn-danger btn-sm", "data-confirm" => "本当に削除しますか？" %></td></br>
-    </tr>
+    <div class="row">
+      <%= attachment_image_tag member, :profile_image, :fill, 500, 500, fallback: "no_image.jpg" %>
+      <div class="name">
+        <%= member.name %>
+      </div>
+      <%= member.introduction %>
+      <%= link_to "https://www.instagram.com/#{member.instagram}/", target: :_blank, rel: "noopener noreferrer" do %>
+        <i class="fab fa-instagram text-dark"></i>
+      <% end %>
+    </div>
+    <div class="row">
+      <% if admin_signed_in? %>
+        <%= link_to "edit", edit_member_path(member), class: "btn btn-success btn-sm" %>
+        <%= link_to "destroy", member_path(member), method: :delete, class: "btn btn-danger btn-sm", "data-confirm" => "本当に削除しますか？" %></br>
+      <% end %>
+    </div>
   <% end %>
-</table>
+
+  <% if admin_signed_in? %>
+    <%= form_with model: @member, local:true do |f| %>
+      name<%= f.text_field :name, class: "form-control" %>
+      introduction<%= f.text_field :introduction, class: "form-control" %>
+      image<%= f.attachment_field :profile_image, class: "form-control" %>
+      instagram ID<%= f.text_field :instagram, class: "form-control" %>
+      <%= f.submit class: "btn btn-success" %>
+    <% end %>
+  <% end %>
+</div>

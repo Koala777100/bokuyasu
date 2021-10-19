@@ -1,9 +1,8 @@
 class MembersController < ApplicationController
+  before_action :authenticate_admin!,only: [:create,:edit,:update,:destroy]
+
   def index
     @members = Member.all
-  end
-
-  def new
     @member = Member.new
   end
 
@@ -32,6 +31,6 @@ class MembersController < ApplicationController
   private
 
   def member_params
-    params.require(:member).permit(:name, :introduction, :profile_image)
+    params.require(:member).permit(:name, :introduction, :profile_image, :instagram)
   end
 end

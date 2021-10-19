@@ -1,0 +1,39 @@
+<div class="card-list-container py-5">
+  <% lists.each do |list| %>
+    <div class="card w-50 mx-auto mt-4 shadow-lg">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-5">
+            <p class="card-title">
+              <strong>
+                <%= link_to list_path(list), class: "text-dark" do %>
+                  <%= list.title %>
+                <% end %>
+              </strong>
+            </p>
+          </div>
+          <div class="col-10">
+            <p class="card-body">
+              <%= list.body %>
+            </p>
+          </div>
+          <div class="col-10">
+            <p class="card-name">
+              <% if list.name %>
+                By : <%= list.name %>
+              <% else %>
+                By : 匿名
+              <% end %>
+            </p>
+          </div>
+          <div class="row">
+          <% if admin_signed_in? %>
+            <%= link_to "edit", edit_list_path(list), class: "btn btn-success btn-sm" %>
+            <%= link_to "destroy", list_path(list), method: :delete, class: "btn btn-danger btn-sm", "data-confirm" => "本当に削除しますか？" %></br>
+          <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  </div>
