@@ -1,8 +1,8 @@
 <div class="card-list-container py-5">
   <% lists.each do |list| %>
-  <%= link_to list_path(list), class: "text-dark" do %>
     <div class="card w-50 mx-auto mt-4 shadow-lg">
       <div class="card-body">
+        <%= link_to list_path(list), class: "text-dark" do %>
         <div class="row">
           <div class="col-5">
             <p class="card-title">
@@ -37,8 +37,8 @@
           <% end %>
           </div>
         </div>
+        <% end %>
       </div>
     </div>
-  <% end %>
   <% end %>
   </div>
